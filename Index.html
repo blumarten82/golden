@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>To Do List</h1>
+    <div class="todo-input-section">
+      <input type="text" id="todo-input" placeholder="할 일을 입력하세요...">
+      <input type="date" id="todo-date">
+      <input type="time" id="start-time" placeholder="시작 시간">
+      <input type="time" id="end-time" placeholder="종료 시간">
+      <button id="add-todo-btn">추가</button>
+    </div>
+    <div class="view-toggle">
+      <button id="list-view-btn" class="active">리스트 보기</button>
+      <button id="calendar-view-btn">달력 보기</button>
+    </div>
+    <div id="calendar-header" style="display:none;"></div>
+    <div id="todo-list-view" class="todo-view"></div>
+    <div id="calendar-view" class="todo-view" style="display:none;"></div>
+    <div id="calendar-detail-section" style="display:none;"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
