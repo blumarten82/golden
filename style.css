@@ -1,361 +1,116 @@
 body {
-  background: #f8fafc;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
   font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  color: #333;
 }
 
 .container {
-  max-width: 500px;
-  margin: 40px auto;
-  background: #fff6fa;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  padding: 32px 24px 24px 24px;
+  max-width: 420px;
+  margin: 40px auto 0 auto;
+  background: #fff8fc;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(180, 180, 255, 0.12);
+  padding: 32px 24px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 h1 {
-  text-align: center;
-  color: #a18cd1;
-  margin-bottom: 24px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #7c83fd;
+  margin: 0 0 4px 0;
+  letter-spacing: -1px;
 }
-
-.todo-input-section {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-#todo-input, #todo-date, #start-time, #end-time {
-  flex: 1;
-  padding: 16px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  font-size: 18px;
-  background: #f3f8ff;
-  outline: none;
-  transition: border 0.2s;
-  min-width: 0;
-  box-sizing: border-box;
-  height: 48px;
-}
-
-#todo-input:focus, #todo-date:focus, #start-time:focus, #end-time:focus {
-  border: 2px solid #a18cd1;
-}
-
-#add-todo-btn {
-  background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
-  border: none;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 0 24px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background 0.2s;
-  height: 48px;
-  min-width: 80px;
-}
-
-#add-todo-btn:hover {
-  background: linear-gradient(90deg, #a6c1ee 0%, #fbc2eb 100%);
-}
-
-.view-toggle {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.view-toggle button {
-  background: #f3f8ff;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 18px;
-  font-size: 15px;
-  color: #a18cd1;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.view-toggle button.active, .view-toggle button:hover {
-  background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
-  color: #fff;
-}
-
-.todo-view {
-  min-height: 200px;
-}
-
-/* 리스트 뷰 스타일 */
-#todo-list-view ul {
-  list-style: none;
-  padding: 0;
+.subtitle {
+  color: #b8b5ff;
+  font-size: 1rem;
   margin: 0;
 }
 
-.todo-item {
-  background: #f3f8ff;
-  border-radius: 8px;
+label {
+  font-weight: 600;
+  color: #7c83fd;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input[type="password"], textarea {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: #f3f4fa;
+  padding: 12px;
+  font-size: 1rem;
   margin-bottom: 10px;
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(161,140,209,0.06);
+  box-sizing: border-box;
+  resize: none;
   transition: box-shadow 0.2s;
 }
-
-.todo-item:hover {
-  box-shadow: 0 4px 16px rgba(161,140,209,0.12);
+input[type="password"]:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #b8b5ff;
 }
 
-.todo-text {
-  flex: 1;
-  font-size: 16px;
-  color: #5f5f5f;
-}
-
-.todo-date {
-  font-size: 13px;
-  color: #b39ddb;
-  margin-left: 12px;
-}
-
-.todo-time {
-  font-size: 13px;
-  color: #7e57c2;
-  margin-left: 12px;
-}
-
-.todo-actions button {
-  background: none;
-  border: none;
-  color: #a18cd1;
-  font-size: 16px;
-  margin-left: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  padding: 2px 6px;
-  transition: background 0.2s;
-}
-
-.todo-actions button:hover {
-  background: #fbc2eb;
+button {
+  background: linear-gradient(90deg, #a5b6ff 0%, #fbc2eb 100%);
   color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(180, 180, 255, 0.08);
+  transition: background 0.2s, transform 0.1s;
+  margin-right: 8px;
+}
+button:last-child { margin-right: 0; }
+button:hover {
+  background: linear-gradient(90deg, #7c83fd 0%, #fbc2eb 100%);
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* 달력 뷰 스타일 */
-#calendar-view {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 10px;
-}
-
-.calendar-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 4px;
-  table-layout: fixed; /* 추가: 칸 고정 */
-}
-
-.calendar-table th {
-  color: #a18cd1;
-  font-weight: 600;
-  padding-bottom: 6px;
-}
-
-.calendar-table td {
-  background: #f3f8ff;
-  border-radius: 8px;
-  min-width: 120px;
-  min-height: 120px;
-  width: 14.28%;
-  vertical-align: top;
-  padding: 14px 8px 8px 14px;
-  font-size: 18px;
-  position: relative;
-  box-shadow: 0 1px 4px rgba(161,140,209,0.04);
-  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
-}
-
-.calendar-table td.today {
-  border: 2px solid #a18cd1;
-  background: #ede7f6;
-}
-
-.calendar-day-cell.selected {
-  border: 3px solid #f06292;
-  background: #fff0f6 !important;
-  box-shadow: 0 0 0 4px #f8bbd0;
-  z-index: 1;
-}
-
-.calendar-todo-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  max-height: 70px;
-  overflow-y: auto;
-}
-
-.calendar-todo-list li {
-  font-size: 13px;
-  color: #7e57c2;
-  background: #fbc2eb;
-  border-radius: 4px;
-  margin-bottom: 4px;
-  padding: 2px 4px 2px 4px;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  flex-direction: column;
-}
-
-.calendar-todo-time {
-  display: block;
-  font-size: 12px;
-  color: #5e35b1;
-  margin-top: 1px;
-  word-break: keep-all;
-}
-
-#calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.apikey-section, .input-section, .result-section {
   margin-bottom: 12px;
 }
 
-.calendar-header-box {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  background: #fff6fa;
-  border-radius: 10px;
-  padding: 8px 18px;
-  box-shadow: 0 2px 8px rgba(161,140,209,0.06);
+#apikey-status {
+  font-size: 0.95rem;
+  color: #7c83fd;
+  margin-left: 8px;
 }
 
-.calendar-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #7e57c2;
-  letter-spacing: 1px;
-}
-
-.calendar-arrow {
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: #a18cd1;
-  cursor: pointer;
-  padding: 2px 10px;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.calendar-arrow:hover {
-  background: #fbc2eb;
-  color: #fff;
-}
-
-#calendar-detail-section {
-  margin-top: 24px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.calendar-detail-box {
-  background: #f3f8ff;
+#lyrics {
+  background: #f3f4fa;
+  color: #333;
+  font-family: 'Noto Sans KR', 'Pretendard', Arial, sans-serif;
+  font-size: 1.05rem;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(161,140,209,0.08);
-  padding: 24px 18px 18px 18px;
+  margin-bottom: 10px;
+  min-height: 180px;
+  line-height: 1.6;
 }
 
-.calendar-detail-box h3 {
-  margin-top: 0;
-  color: #7e57c2;
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-.calendar-detail-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 16px 0;
-}
-
-.calendar-detail-list li {
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: #5f5f5f;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.calendar-detail-list li span {
-  font-size: 13px;
-  color: #7e57c2;
-}
-
-.calendar-detail-inputs {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.calendar-detail-inputs input[type="text"] {
-  flex: 2;
-  padding: 10px 12px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 15px;
-  background: #fff;
-}
-
-.calendar-detail-inputs input[type="time"] {
-  flex: 1;
-  padding: 10px 6px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 15px;
-  background: #fff;
-}
-
-.calendar-detail-inputs button {
-  background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
-  border: none;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 0 16px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: background 0.2s;
-}
-
-.calendar-detail-inputs button:hover {
-  background: linear-gradient(90deg, #a6c1ee 0%, #fbc2eb 100%);
+footer {
+  text-align: center;
+  color: #b8b5ff;
+  font-size: 0.95rem;
+  margin-top: 16px;
 }
 
 @media (max-width: 600px) {
   .container {
-    padding: 12px 2vw 18px 2vw;
     max-width: 98vw;
+    padding: 16px 4vw 8px 4vw;
   }
-  .calendar-table td {
-    min-width: 60px;
-    min-height: 60px;
-    font-size: 13px;
-  }
+  h1 { font-size: 1.5rem; }
 } 
